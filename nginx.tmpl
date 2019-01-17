@@ -1,5 +1,6 @@
 client_max_body_size 50M;
 server_tokens off;
+hsts off;
 chunked_transfer_encoding off;
 
 {{ $CurrentContainer := where $ "ID" .Docker.CurrentContainerID | first }}
