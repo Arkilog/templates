@@ -5,8 +5,6 @@ services:
     container_name: "${APP_CONTAINER_NAME}"
     env_file:
       .app_env_file
-    environment:
-        VIRTUAL_PORT: 8080
     volumes:
         - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
         - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
@@ -17,3 +15,4 @@ services:
         - ${APP_BASEDIR}/app/tasks:/home/etude/tasks/
         - ${APP_BASEDIR}/app/database:/home/etude/database/
         - /etc/timezone:/etc/timezone:ro
+    network_mode: bridge
