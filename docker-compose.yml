@@ -5,16 +5,12 @@ services:
     container_name: entropy
     privileged: true
     restart: unless-stopped
-    env_file:
-      - .nginx_env_file
   nginx:
     image: nginx:1.14.2
     labels:
         com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     container_name: nginx
     restart: unless-stopped
-    env_file:
-      - .nginx_env_file
     ports:
       - "80:80"
       - "443:443"
@@ -31,22 +27,18 @@ services:
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen: "true"
     restart: unless-stopped
-    env_file:
-      - .nginx_env_file
     volumes:
       - ${APP_BASEDIR}/nginx/conf.d:/etc/nginx/conf.d
       - ${APP_BASEDIR}/nginx/vhost.d:/etc/nginx/vhost.d
       - ${APP_BASEDIR}/nginx/html:/usr/share/nginx/html
       - ${APP_BASEDIR}/nginx/certs:/etc/nginx/certs:ro
+      - ${APP_BASEDIR}/nginx/templates/:/etc/docker-gen/templates/:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ${APP_BASEDIR}/templates/:/etc/docker-gen/templates/:ro
     network_mode: bridge
   nginx-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion:v1.10
     container_name: nginx-letsencrypt
     restart: unless-stopped
-    env_file:
-      - .nginx_env_file
     volumes:
       - ${APP_BASEDIR}/nginx/conf.d:/etc/nginx/conf.d
       - ${APP_BASEDIR}/nginx/vhost.d:/etc/nginx/vhost.d
