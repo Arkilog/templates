@@ -2,16 +2,16 @@ version: '3'
 services:
   etude:
     image: "${APP_IMAGE_URL}"
-    container_name: ${APP_CONTAINER_NAME}
+    container_name: "${APP_CONTAINER_NAME}"
     env_file:
       .app_env_file
     volumes:
-        - ${APP_BASEDIR}/logs:/usr/local/tomcat/logs/
-        - ${APP_BASEDIR}/work:/usr/local/tomcat/work/
-        - ${APP_BASEDIR}/temp:/usr/local/tomcat/temp/
-        - ${APP_BASEDIR}/systmp:/tmp/
-        - ${APP_BASEDIR}/.java:/root/.java/
-        - ${APP_BASEDIR}/backup:/root/arkilogbackup/
-        - ${APP_BASEDIR}/tasks:/home/etude/tasks/
-        - ${APP_BASEDIR}/database:/home/etude/database/
+        - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
+        - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
+        - ${APP_BASEDIR}/app/temp:/usr/local/tomcat/temp/
+        - ${APP_BASEDIR}/app/systmp:/tmp/
+        - ${APP_BASEDIR}/app/.java:/root/.java/
+        - ${APP_BASEDIR}/app/backup:/root/arkilogbackup/
+        - ${APP_BASEDIR}/app/tasks:/home/etude/tasks/
+        - ${APP_BASEDIR}/app/database:/home/etude/database/
         - /etc/timezone:/etc/timezone:ro
