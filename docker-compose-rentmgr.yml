@@ -5,6 +5,8 @@ services:
     container_name: "${APP_CONTAINER_NAME}"
     env_file:
       .app_env_file
+    environment:
+      RENTMGR_BATCH_CRON: "0 0/1 0 ? * * *"
     volumes:
         - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
         - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
