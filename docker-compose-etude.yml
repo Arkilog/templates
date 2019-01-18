@@ -1,7 +1,7 @@
 version: '3'
 services:
   etude:
-    image: ${APP_IMAGE_URL}
+    image: "${APP_IMAGE_URL}"
     container_name: ${APP_CONTAINER_NAME}
     env_file:
       .app_env_file
