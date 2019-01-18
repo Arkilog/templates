@@ -15,4 +15,3 @@ services:
         - ${APP_BASEDIR}/tasks:/home/etude/tasks/
         - ${APP_BASEDIR}/database:/home/etude/database/
         - /etc/timezone:/etc/timezone:ro
-        - /etc/localtime:/etc/localtime:ro
