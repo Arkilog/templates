@@ -1,0 +1,15 @@
+version: '3'
+services:
+  etude:
+    image: "${APP_IMAGE_URL}"
+    container_name: "${APP_CONTAINER_NAME}"
+    env_file:
+      .app_env_file
+    volumes:
+        - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
+        - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
+        - ${APP_BASEDIR}/app/temp:/usr/local/tomcat/temp/
+        - ${APP_BASEDIR}/app/systmp:/tmp/
+        - ${APP_BASEDIR}/app/.java:/root/.java/
+        - /etc/timezone:/etc/timezone:ro
+    network_mode: bridge
