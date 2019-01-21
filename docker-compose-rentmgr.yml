@@ -7,6 +7,10 @@ services:
       .app_env_file
     environment:
       RENTMGR_BATCH_CRON: "0 0/1 0 ? * * *"
+    environment:
+      - APP_BASEDIR
+      - APP_IMAGE_URL
+      - APP_CONTAINER_NAME
     volumes:
         - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
         - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
