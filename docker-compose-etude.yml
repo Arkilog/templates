@@ -5,6 +5,10 @@ services:
     container_name: "${APP_CONTAINER_NAME}"
     env_file:
       .app_env_file
+    environment:
+      - APP_BASEDIR
+      - APP_IMAGE_URL
+      - APP_CONTAINER_NAME
     volumes:
         - ${APP_BASEDIR}/app/logs:/usr/local/tomcat/logs/
         - ${APP_BASEDIR}/app/work:/usr/local/tomcat/work/
