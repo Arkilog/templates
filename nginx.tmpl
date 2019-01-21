@@ -267,7 +267,7 @@ server {
 	{{ end }}
 
 	{{ if (and (ne $https_method "noredirect") (ne $hsts "off")) }}
-	add_header Strict-Transport-Security "{{ trim $hsts }}" max-age=0;
+	add_header Strict-Transport-Security "max-age=0";
 	{{ end }}
 
 	{{ if (exists (printf "/etc/nginx/vhost.d/%s" $host)) }}
