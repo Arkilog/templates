@@ -6,7 +6,6 @@ services:
     env_file:
       .app_env_file
     environment:
-      ACME_CA_URI: "https://acme-staging.api.letsencrypt.org/directory"
       APP_BASEDIR: "${APP_BASEDIR}"
       APP_IMAGE_URL: "${APP_IMAGE_URL}"
       APP_CONTAINER_NAME: "${APP_CONTAINER_NAME}"
