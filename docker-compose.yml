@@ -1,10 +1,5 @@
 version: '3'
 services:
-  entropy:
-    image: "harbur/haveged:1.7c-1"
-    container_name: entropy
-    privileged: true
-    restart: unless-stopped
   nginx:
     image: nginx:1.14.2
     labels:
