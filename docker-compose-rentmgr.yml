@@ -3,7 +3,7 @@ services:
   etude:
     image: "${APP_IMAGE_URL}"
     container_name: "${APP_CONTAINER_NAME}"
-    restart: unless-stopped
+    restart: always
     env_file:
       .app_env_file
     environment:
