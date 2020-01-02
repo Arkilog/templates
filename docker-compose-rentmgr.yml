@@ -1,6 +1,6 @@
 version: '3'
 services:
-  etude:
+  rentmgr:
     image: "${APP_IMAGE_URL}"
     container_name: "${APP_CONTAINER_NAME}"
     restart: always
