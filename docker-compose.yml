@@ -2,6 +2,11 @@ version: '3'
 services:
   nginx:
     image: nginx:1.17.6
+    healthcheck:
+        test: "service nginx status || exit 1"
+        interval: 1m30s
+        timeout: 20s
+        retries: 10
     labels:
         com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     container_name: nginx
